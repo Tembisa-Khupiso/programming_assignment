@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<meta http-equiv="refresh" content="30" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            <!--
+            //-->
+            </script> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jqueryui.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scrolltop.js"></script>
+        <script src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+        <link rel="stylesheet" type="text/css" href="../12Think_Like_a_Machine/styles.css">
+ </head>
+ <body id="page" onload="myFunction0(loader)" style="margin:0;">
+        
+        <div id="loader"></div>
+
+    <main style="display:none;" id="myDiv" class="animate-bottom"> 
+            <ul class="cb-slideshow">
+                    <li><span>Image 01</span><div><h3></h3></div></li>
+                    <li><span>Image 02</span><div><h3></h3></div></li>
+                    <li><span>Image 03</span><div><h3></h3></div></li>
+            </ul> 
+    <div class="header animate-top" id="band"> 
+        <div class="head-container">
+
+        <div class="mySlides animate-left animate-right">         
+        <img src="./img/logo1.png" alt="graduation cap" />
+        </div>
+       
+        <div class="mySlides animate-left animate-right">         
+        <img src="./img/logo4.png" alt="graduation cap" />
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="list-item"><a href="programming_assignment.html">MOODLE</a></li>
+                <li class="list-item"><a href="javascript:location.reload(true)">REFRESH PAGE</a></li>
+                <li><input type="button" value="PRINT PAGE" onclick="window.print()" /></li>
+            </ul>
+            </div>
+        </div> 
+    </div>          
+<div class="container bg">
+   <h1 class="animate-bottom" id="app">WELCOME TO THE RESULTS PAGE</h1>
+<input class="animate-left" id="res" type="input" placeholder="Put any number between 0 and 1, then click the button below to get your results" /><br /><br />
+<button class="animate-bottom" onclick="document.getElementById('ticketModal').style.display='block', myFunction(res)">SHOW RESULTS</button>
+
+</div>
+<!-- Ticket Modal1 -->
+<div id="ticketModal" class="res-modal">
+        <div class="res-modal-content res-animate-top res-card-4 animate-top">
+            <p class="para" id="results"></p>
+            <ul>
+                    <li><input class="but" type="button" value="Print Your Results" onclick="window.print()" /></li>
+                    <li><input class="but" type="button" value="x" onclick="document.getElementById('ticketModal').style.display='none'" /></li>
+            </ul>
+        </div>
+      </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+  // page loader.
+  var myVar;
+
+  function myFunction0(loader) {
+  myVar = setTimeout(showPage, 3000);
+  }
+
+  function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+  }
+
+   // When the user clicks anywhere outside of the modal, close it.
+   var modal = document.getElementById('ticketModal');
+   window.onclick = function(event) {
+     if (event.target == modal) {
+       modal.style.display = "none";
+     }
+   }
+   
+   // Automatic Slideshow - change image every 5 seconds
+   var myIndex = 0;
+   carousel();
+   
+   function carousel() {
+     var i;
+     var x = document.getElementsByClassName("mySlides");
+     for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+     }
+     myIndex++;
+     if (myIndex > x.length) {myIndex = 1}    
+     x[myIndex-1].style.display = "block";  
+     setTimeout(carousel, 5000);    
+   }
+
+  // When the user clicks the "Show Results" button, it throws results.
+  function myFunction(res) {
+    var oor, percentage;
+    oor = document.getElementById("results");
+    oor.innerHTML = "Error";
+    percentage = document.getElementById("res").value;
+    try { 
+      if(percentage == "") throw "<h2>ERROR</h2> You didn't put anything to search, please insert a number and try again.";
+      if(isNaN(percentage)) throw "<h2>ERROR</h2> This is not a number, please insert a number and try again.";
+      percentage = Number(percentage);
+      if(percentage <= 0) throw "<h2>ERROR</h2> Your input is out of range";
+      if(percentage > 1) throw "<h2>ERROR</h2> Your input is out of range";
+      if(percentage >= 0.9) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol A - well done, you have passed.";
+      if(percentage >= 0.8) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol B - well done, you have passed.";
+      if(percentage >= 0.7) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol C - well done, you have passed.";
+      if(percentage >= 0.6) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol D - well done, you have passed.";
+      if(percentage < 0.6)  throw "<h2>BAD NEWS</h2> Numeric : Symbol F - It's not the end of the world buddy, you can repeat your grade. Good Luck!"; 
+    }
+    catch(err) {
+      oor.innerHTML = err;
+    }
+  }
+      </script>
+</body>
+</html>
