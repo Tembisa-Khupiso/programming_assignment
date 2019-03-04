@@ -112,7 +112,7 @@
       if(percentage == "") throw "<h2>ERROR</h2> You didn't put anything to search, please insert a number and try again.";
       if(isNaN(percentage)) throw "<h2>ERROR</h2> This is not a number, please insert a number and try again.";
       percentage = Number(percentage);
-      if(percentage <= 0) throw "<h2>ERROR</h2> Your input is out of range";
+      if(percentage <= 0 || percentage > 1) throw "<h2>ERROR</h2> Your input is out of range";
       if(percentage > 1) throw "<h2>ERROR</h2> Your input is out of range";
       if(percentage >= 0.9) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol A - well done, you have passed.";
       if(percentage >= 0.8) throw "<h2>CONGRATULATIONS</h2> Numeric : Symbol B - well done, you have passed.";
