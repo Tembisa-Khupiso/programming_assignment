@@ -150,7 +150,7 @@ button:hover {background: Transparent;box-shadow: #bdbdbd 0px 13px 10px -12px;tr
 
 .nav {color: #efefef;}
 
-ul {display: flex;}
+ul {display: flex;float: right;}
 
 li {
     list-style: none;
