@@ -54,10 +54,6 @@ body {
     padding: 70px 0px;
 }
 
-.res-modal-content.res-animate-top.res-card-4.animate-right {
-    
-}
-
    input#res {
    width: 78%;
    font-style: italic;
@@ -195,7 +191,7 @@ color: inherit;
     text-align: center;
     background-image: url(./img/plush-design-studio.png);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
     background-position: -115% 0;
     width: 80%;
